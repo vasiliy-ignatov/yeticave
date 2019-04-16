@@ -68,6 +68,14 @@ $lots = [
         'image' => 'img/lot-6.jpg'
     ]
 ];
+
+function getPrice($price) {
+  $ceil_price = ceil($price);
+  $fromated_price = $ceil_price <= 1000 ? $ceil_price : number_format($ceil_price, 0, ',', ' ');
+  $rouble = ' <b class="rub">р</b>';
+
+  return strval($fromated_price) . $rouble;
+};
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -144,7 +152,7 @@ $lots = [
                         <div class="lot__state">
                             <div class="lot__rate">
                                 <span class="lot__amount">Стартовая цена</span>
-                                <span class="lot__cost"><?=$value['price'];?><b class="rub">р</b></span>
+                                <span class="lot__cost"><?=getPrice($value['price']);?></span>
                             </div>
                             <div class="lot__timer timer">
                                 12:23
