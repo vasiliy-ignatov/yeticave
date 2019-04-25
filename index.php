@@ -1,7 +1,8 @@
 <?php
     require_once('./helpers.php');
     require_once('./util.php');
-    $categoties = [
+
+    $categories = [
         [
             'name' => 'Доски и лыжи',
             'mod' => 'boards'
@@ -70,8 +71,20 @@
     $page_title = 'Главная';
     $user_name = 'Superuser';
     $is_auth = rand(0, 1);
+    $content_values = [
+        'lots' => $lots,
+        'categories' => $categories
+    ];
+    $content = include_template('index.php', $content_values);
 
-    $page = include_template('layout.php');
+    $layout_values = [
+        'page_title' => $page_title,
+        'user_name' => $user_name,
+        'is_auth' => $is_auth,
+        'content' => $content,
+        'categories' => $categories
+    ];
+    $page = include_template('layout.php', $layout_values);
 
     print($page);
 ?>

@@ -3,7 +3,7 @@ $is_auth = rand(0, 1);
 
 $user_name = 'Superuser'; // укажите здесь ваше имя
 
-$categoties = [
+$categories = [
     [
         'name' => 'Доски и лыжи',
         'mod' => 'boards'
@@ -128,7 +128,7 @@ function getPrice($price) {
         <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
         <ul class="promo__list">
             <!--заполните этот список из массива категорий-->
-            <?php foreach ($categoties as $key => $value):?>
+            <?php foreach ($categories as $key => $value):?>
                 <li class="promo__item <?='promo__item--'.$value['mod']?>">
                     <a class="promo__link" href="pages/all-lots.html"><?=$value['name'];?></a>
                 </li>
@@ -171,7 +171,7 @@ function getPrice($price) {
     <nav class="nav">
         <ul class="nav__list container">
             <!--заполните этот список из массива категорий-->
-            <?php foreach ($categoties as $key => $value):?>
+            <?php foreach ($categories as $key => $value):?>
                 <li class="nav__item">
                     <a href="pages/all-lots.html"><?=$value['name'];?></a>
                 </li>
