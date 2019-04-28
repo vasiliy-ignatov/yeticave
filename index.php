@@ -2,6 +2,7 @@
     require_once('./helpers.php');
     require_once('./functions.php');
 
+
     $categories = [
         [
             'name' => 'Доски и лыжи',
