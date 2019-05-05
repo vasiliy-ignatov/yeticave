@@ -35,9 +35,10 @@
 
                       $rest_in_seconds = $tomorrow - $today;
                       $rest_in_minutes = floor($rest_in_seconds / 60);
+                      $rest_in_timeformat = floor($rest_in_seconds / 3600) .':'. floor($rest_in_seconds / 60 % 60);
                     ?>
                     <div class="lot__timer timer <?= ($rest_in_minutes <= 60) ? 'timer--finishing' : ''?>">
-                      <?= date("H:i", $rest_in_seconds) ?>
+                      <?= $rest_in_timeformat ?>
                     </div>
                 </div>
             </div>
