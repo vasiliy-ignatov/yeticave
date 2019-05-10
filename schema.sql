@@ -5,10 +5,10 @@ CREATE DATABASE yeticave
 USE yeticave;
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  name CHAR(128),
-  email CHAR(128) UNIQUE,
-  password CHAR(64),
-  avatar VARCHAR(300),
+  name VARCHAR(128),
+  email VARCHAR(128) UNIQUE,
+  password VARCHAR(64),
+  avatar VARCHAR(150),
   contact TEXT NOT NULL,
   rates_id INT
 );
@@ -24,7 +24,7 @@ CREATE TABLE rates (
 
 CREATE TABLE lots (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  name CHAR(128),
+  name VARCHAR(128),
   description TEXT,
   picture TEXT,
   start_price INT,
@@ -46,6 +46,6 @@ CREATE INDEX lots_category_id
 
 CREATE TABLE category (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  name CHAR(128) UNIQUE NOT NULL,
-  code CHAR(64) UNIQUE
+  name VARCHAR(128) UNIQUE NOT NULL,
+  code VARCHAR(64) UNIQUE
 );
