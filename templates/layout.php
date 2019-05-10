@@ -25,7 +25,7 @@
             <!-- здесь должен быть PHP код для показа меню и данных пользователя -->
             <?php if ($is_auth): ?>
                 <div class="user-menu__logged">
-                    <p><?=$user_name;?></p>
+                    <p><?=htmlspecialchars($user_name);?></p>
                     <a class="user-menu__bets" href="pages/my-bets.html">Мои ставки</a>
                     <a class="user-menu__logout" href="#">Выход</a>
                 </div>
@@ -55,7 +55,7 @@
             <!--заполните этот список из массива категорий-->
             <?php foreach ($categories as $key => $value):?>
                 <li class="nav__item">
-                    <a href="pages/all-lots.html"><?=strip_tags($value['name']);?></a>
+                    <a href="pages/all-lots.html"><?=$value['name'];?></a>
                 </li>
             <?php endforeach;?>
         </ul>
