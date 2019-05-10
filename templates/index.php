@@ -29,16 +29,8 @@
                         <span class="lot__amount">Стартовая цена</span>
                         <span class="lot__cost"><?=getPrice($value['price']);?></span>
                     </div>
-                    <?php
-                      $today = strtotime("now");
-                      $tomorrow = strtotime("tomorrow");
-
-                      $rest_in_seconds = $tomorrow - $today;
-                      $rest_in_minutes = floor($rest_in_seconds / 60);
-                      $rest_in_timeformat = floor($rest_in_seconds / 3600) .':'. floor($rest_in_seconds / 60 % 60);
-                    ?>
-                    <div class="lot__timer timer <?= ($rest_in_minutes <= 60) ? 'timer--finishing' : ''?>">
-                      <?= $rest_in_timeformat ?>
+                    <div class="lot__timer timer <?= isLastHour("now", "tomorrow") ? "timer--finishing" : ""; ?>">
+                        <?= getRestTime("now", "tomorrow") ?>
                     </div>
                 </div>
             </div>
