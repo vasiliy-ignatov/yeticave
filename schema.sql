@@ -6,13 +6,15 @@ USE yeticave;
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name CHAR(128),
-  email CHAR(128),
+  email CHAR(128) UNIQUE,
   password CHAR(64),
-  avatar TEXT,
-  contact TEXT,
-  lots_id INT,
+  avatar VARCHAR(300),
+  contact TEXT NOT NULL,
   rates_id INT
 );
+
+CREATE INDEX users_email
+  ON users (email);
 
 CREATE TABLE rates (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -29,12 +31,21 @@ CREATE TABLE lots (
   dt_start TIMESTAMP,
   dt_over TIMESTAMP,
   author_id INT,
+  user_id INT,
   category_id INT
 );
 
+CREATE INDEX lots_name
+  ON lots (name);
+
+CREATE INDEX lots_users_id
+  ON lots (user_id);
+
+CREATE INDEX lots_category_id
+  ON lots (category_id);
 
 CREATE TABLE category (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  name CHAR(128),
-  code CHAR(64)
+  name CHAR(128) UNIQUE NOT NULL,
+  code CHAR(64) UNIQUE
 );
