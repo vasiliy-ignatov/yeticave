@@ -32,6 +32,7 @@ CREATE TABLE lots (
   category_id INT
 );
 
+
 CREATE TABLE category (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name CHAR(128),
